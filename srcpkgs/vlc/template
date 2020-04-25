@@ -31,8 +31,9 @@ makedepends="
  libmatroska-devel libmodplug-devel libmpcdec-devel libmpeg2-devel
  libmtp-devel libplacebo-devel libproxy-devel libsamplerate-devel
  libSM-devel libsysfs-devel libtheora-devel libupnp1.8-devel
- libXinerama-devel libXpm-devel libXvMC-devel opus-devel pulseaudio-devel
- sndio-devel speex-devel taglib-devel wayland-protocols x264-devel
+ libXinerama-devel libXpm-devel libXvMC-devel opus-devel
+ $(vopt_if pulseaudio pulseaudio-devel) $(vopt_if sndio sndio-devel)
+ speex-devel taglib-devel wayland-protocols x264-devel
  xcb-util-devel xcb-util-keysyms-devel live555-devel libdvdread-devel
  $(vopt_if notify libnotify-devel) $(vopt_if opengl MesaLib-devel)
  $(vopt_if qt qt5-x11extras-devel) $(vopt_if qt qt5-svg-devel)
@@ -44,8 +45,8 @@ makedepends="
 depends="freefont-ttf hicolor-icon-theme desktop-file-utils"
 
 # Package build options
-build_options="lua notify opengl qt smb svg v4l2 vaapi vdpau x265 sndio chromecast"
-build_options_default="lua smb v4l2 x265 sndio chromecast"
+build_options="lua notify opengl qt smb svg v4l2 vaapi vdpau x265 sndio pulseaudio chromecast"
+build_options_default="lua smb v4l2 x265 sndio pulseaudio chromecast"
 
 case "$XBPS_TARGET_MACHINE" in
 	i686*|x86_64*|ppc64*)
