@@ -8,7 +8,7 @@ build_style=qmake
 configure_args="--
  -webengine-icu -webengine-ffmpeg -webengine-opus -webengine-webp
  -webengine-pepper-plugins -webengine-printing-and-pdf -webengine-proprietary-codecs
- -webengine-pulseaudio -webengine-spellchecker -webengine-webrtc -webengine-geolocation
+  $(vopt_if pulseaudio '' '-no')-webengine-pulseaudio -webengine-spellchecker -webengine-webrtc -webengine-geolocation
  $(vopt_if snapshot '' '-no')-webengine-v8-snapshot -webengine-kerberos"
 # Rely on auto detection (fails if forced for cross builds) -webengine-alsa
 hostmakedepends="qt5-qmake gperf ninja qt5-host-tools flex pkg-config
@@ -17,7 +17,7 @@ makedepends="qt5-webchannel-devel qt5-location-devel qt5-tools-devel
  qt5-declarative-devel libevent-devel snappy-devel icu-devel ffmpeg-devel
  libwebp-devel opus-devel cups-devel nss-devel minizip-devel libxslt-devel
  libvpx-devel re2-devel libXtst-devel libXcursor-devel libXcomposite-devel
- jsoncpp-devel harfbuzz-devel lcms2-devel protobuf-devel pulseaudio-devel
+ jsoncpp-devel harfbuzz-devel lcms2-devel protobuf-devel $(vopt_if pulseaudio pulseaudio-devel)
  libXrandr-devel MesaLib-devel mit-krb5-devel alsa-lib-devel"
 short_desc="Cross-platform application and UI framework (QT5) - WebEngine component"
 maintainer="John <johnz@posteo.net>"
@@ -27,8 +27,8 @@ distfiles="http://download.qt.io/official_releases/qt/${version%.*}/${version}/s
 checksum=e169d6a75d8c397e04f843bc1b9585950fb9a001255cd18d6293f66fa8a6c947
 patch_args="-Np1"
 
-build_options="snapshot"
-build_options_default="snapshot"
+build_options="snapshot pulseaudio"
+build_options_default="snapshot pulseaudio"
 
 if [ "$CROSS_BUILD" ]; then
 	hostmakedepends+=" nss-devel libevent-devel qt5-location-devel
