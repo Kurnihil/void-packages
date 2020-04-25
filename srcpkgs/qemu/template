@@ -27,6 +27,7 @@ makedepends="libpng-devel libjpeg-turbo-devel pixman-devel snappy-devel
 build_options="gtk3 opengl sdl2 spice virgl smartcard numa sndio pulseaudio iscsi"
 build_options_default="opengl gtk3 virgl smartcard sdl2 numa pulseaudio iscsi"
 
+
 desc_option_sdl2="Enable SDL (2.x) video output"
 desc_option_spice="Enable support for SPICE"
 desc_option_virgl="Enable support for VirGL (A Virtual 3D GPU renderer)"
