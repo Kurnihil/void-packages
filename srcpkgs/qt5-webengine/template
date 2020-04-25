@@ -21,6 +21,7 @@ makedepends="qt5-webchannel-devel qt5-location-devel qt5-tools-devel qt5-devel
  jsoncpp-devel harfbuzz-devel lcms2-devel protobuf-devel $(vopt_if pulseaudio pulseaudio-devel)
  libXrandr-devel MesaLib-devel mit-krb5-devel alsa-lib-devel 
  $(vopt_if sndio sndio-devel)"
+
 short_desc="Cross-platform application and UI framework (QT5) - WebEngine component"
 maintainer="John <johnz@posteo.net>"
 license="GPL-3.0-or-later, LGPL-3.0-or-later"
