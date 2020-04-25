@@ -12,7 +12,7 @@ makedepends="SDL2-devel Vulkan-Headers alsa-lib-devel double-conversion-devel
  libinput-devel libmng-devel libmysqlclient-devel libproxy-devel
  libvpx-devel libwebp-devel libxslt-devel cups-devel
  opus-devel pciutils-devel pcre2-devel postgresql-libs-devel
- protobuf-devel pulseaudio-devel tslib-devel libressl-devel
+ protobuf-devel $(vopt_if pulseaudio pulseaudio-devel) tslib-devel libressl-devel
  unixodbc-devel xcb-util-image-devel xcb-util-keysyms-devel
  xcb-util-renderutil-devel xcb-util-wm-devel libzstd-devel harfbuzz-devel"
 depends="qt5-dbus qt5-gui qt5-core qt5-widgets qt5-network qt5-xml
@@ -27,6 +27,9 @@ python_version=2 #unverified
 replaces="qt5-doc<5.6.0 qt5-quick1<5.6.0 qt5-quick1-devel<5.6.0 qt5-webkit<5.6.0 qt5-webkit-devel<5.6.0
  qt5-enginio<5.7.1 qt5-enginio-devel<5.7.1 qt5-plugin-gtk<5.7.1 qt5-canvas3d<5.13.0"
 lib32mode=full
+
+build_options="pulseaudio"
+build_options_default="pulseaudio"
 
 # Work around SSLv3_{client,server}_method missing in libressl-2.3.3
 CFLAGS="-DOPENSSL_NO_PSK -DOPENSSL_NO_NEXTPROTONEG"
